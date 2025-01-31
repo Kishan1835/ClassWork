@@ -4,7 +4,7 @@ It focuses on mining human related risk and ensuring employes contributes to cyb
 
 ## Key Aspects
 
-- Employes trinning and awarness
+- Employes training and awarness
 - Culture and security
 - Recuiremnt and Screaning
 - Access Control
@@ -21,5 +21,19 @@ It focuses on mining human related risk and ensuring employes contributes to cyb
 ### Security awarness and educations
 
 - OR Codes
-- Public - wife
--
+- Public - wifi
+- Juice Jacking 
+- Website physing 
+- Exe Files 
+- Smishing 
+- Paper and file shreading 
+- Use 2FA
+- password 
+- Lock Devices 
+
+
+## Security Awarness Program
+1. Training Content 
+2. Delivery methods 
+3. Regular Updates 
+4. Assestemt & Feedback
