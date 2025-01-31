@@ -1,4 +1,4 @@
-### People Managemnet In Cyber Security
+## People Managemnet In Cyber Security
 
 It focuses on mining human related risk and ensuring employes contributes to cybersecurity efforts
 
@@ -22,18 +22,22 @@ It focuses on mining human related risk and ensuring employes contributes to cyb
 
 - OR Codes
 - Public - wifi
-- Juice Jacking 
-- Website physing 
-- Exe Files 
-- Smishing 
-- Paper and file shreading 
+- Juice Jacking
+- Website physing
+- Exe Files
+- Smishing
+- Paper and file shreading
 - Use 2FA
-- password 
-- Lock Devices 
-
+- password
+- Lock Devices
 
 ## Security Awarness Program
-1. Training Content 
-2. Delivery methods 
-3. Regular Updates 
+
+1. Training Content
+2. Delivery methods
+3. Regular Updates
 4. Assestemt & Feedback
+
+## Juice Jacking
+
+Type of cyberattack that happens when someone steals your personal information by plugging their malicious USB device into your phone or laptop while you're charging.
