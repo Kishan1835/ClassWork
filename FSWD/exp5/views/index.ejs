@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        table { width: 50%; margin: 20px auto; border-collapse: collapse; }
+        table, th, td { border: 1px solid black; padding: 10px; }
+        form { margin: 20px auto; width: 50%; }
+        input, button { padding: 8px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h2>Student Management</h2>
+    
+    <!-- Add Student Form -->
+    <form action="/add" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="number" name="age" placeholder="Age" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <button type="submit">Add Student</button>
+    </form>
+
+    <!-- Student List -->
+    <h3>Student Records</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        <% students.forEach(student => { %>
+        <tr>
+            <td><%= student.name %></td>
+            <td><%= student.age %></td>
+            <td><%= student.email %></td>
+            <td>
+                <form action="/update/<%= student._id %>" method="POST" style="display:inline;">
+                    <input type="text" name="name" value="<%= student.name %>" required>
+                    <input type="number" name="age" value="<%= student.age %>" required>
+                    <input type="email" name="email" value="<%= student.email %>" required>
+                    <button type="submit">Update</button>
+                </form>
+                <a href="/delete/<%= student._id %>" style="color:red;">Delete</a>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</body>
+</html>

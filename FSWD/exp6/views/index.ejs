@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        table { width: 60%; margin: 20px auto; border-collapse: collapse; }
+        table, th, td { border: 1px solid black; padding: 10px; }
+        form { margin: 20px auto; width: 50%; }
+        input, button { padding: 8px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h2>Event Management</h2>
+
+    <!-- Add Event Form -->
+    <form action="/add" method="POST">
+        <input type="text" name="title" placeholder="Event Title" required>
+        <input type="date" name="date" required>
+        <input type="text" name="location" placeholder="Location" required>
+        <button type="submit">Add Event</button>
+    </form>
+
+    <!-- Event List -->
+    <h3>Event Records</h3>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Actions</th>
+        </tr>
+        <% events.forEach(event => { %>
+        <tr>
+            <td><%= event.title %></td>
+            <td><%= event.date %></td>
+            <td><%= event.location %></td>
+            <td>
+                <form action="/update/<%= event.id %>" method="POST" style="display:inline;">
+                    <input type="text" name="title" value="<%= event.title %>" required>
+                    <input type="date" name="date" value="<%= event.date %>" required>
+                    <input type="text" name="location" value="<%= event.location %>" required>
+                    <button type="submit">Update</button>
+                </form>
+                <a href="/delete/<%= event.id %>" style="color:red;">Delete</a>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+</body>
+</html>
