@@ -1,0 +1,64 @@
+import React, { useState } from 'react';
+
+export default function App() {
+  const [tasks, setTasks] = useState([]);
+  const [input, setInput] = useState('');
+
+  const addTask = () => {
+    const trimmed = input.trim();
+    if (!trimmed) {
+      alert('Task cannot be empty!');
+      return;
+    }
+
+    const isDuplicate = tasks.some(task => task.text.toLowerCase() === trimmed.toLowerCase());
+    if (isDuplicate) {
+      alert('This task already exists!');
+      return;
+    }
+
+    setTasks([...tasks, { text: trimmed, done: false }]);
+    setInput('');
+  };
+
+  const deleteTask = (index) => {
+    if (window.confirm('Delete this task?')) {
+      setTasks(tasks.filter((_, i) => i !== index));
+    }
+  };
+
+  const toggleTask = (index) => {
+    const updated = [...tasks];
+    updated[index].done = !updated[index].done;
+    setTasks(updated);
+  };
+
+  return (
+    <div>
+      <h2>To-Do App</h2>
+      <input
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Enter task"
+      />
+      <button onClick={addTask}>Add</button>
+
+      <ul>
+        {tasks.map((task, index) => (
+          <li key={index}>
+            <span
+              onClick={() => toggleTask(index)}
+              style={{
+                textDecoration: task.done ? 'line-through' : 'none',
+                cursor: 'pointer'
+              }}
+            >
+              {task.text}
+            </span>
+            <button onClick={() => deleteTask(index)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
